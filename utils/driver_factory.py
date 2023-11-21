@@ -1,5 +1,4 @@
-
-from pywinauto import Application
+from pywinauto.application import Application
 
 from utils.env import Environment
 
@@ -15,3 +14,6 @@ class DriverFactory:
         cls.driver = app[env.get_app_name()]
 
 
+
+if __name__ == '__main__':
+    DriverFactory.get_driver()
