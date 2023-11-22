@@ -2,11 +2,34 @@ from pageObject.home_page import HomePage
 
 
 class HomeHandler(HomePage):
+    """
+    home页面的操作
+    """
 
-    def click_mals_procing_loc(self):
-        self.get_mals_procing_loc().left_click()
+    def __init__(self):
+        super().__init__()
 
+    def click_meals_pricing_loc(self):
+        self.meals_pricing_loc().click()
+
+    def click_meals_management_loc(self):
+        self.meals_management_loc().click()
+
+    def click_revenue_analysis_loc(self):
+        self.revenue_analysis_loc().click()
+
+    def click_member_management_loc(self):
+        self.member_management_loc().click()
+
+    def click_setting_loc(self):
+        self.setting_loc().click()
+
+    def click_min_loc(self):
+        self.min_loc().click()
+
+    def click_close_loc(self):
+        self.close_loc().click()
 
 
 if __name__ == '__main__':
-    HomeHandler().click_mals_procing_loc()
+    HomeHandler().click_meals_procing()

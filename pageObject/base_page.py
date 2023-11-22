@@ -1,3 +1,5 @@
+import inspect
+
 from utils.driver_factory import DriverFactory
 
 
@@ -42,7 +44,7 @@ class BasePage:
         except Exception as e:
             element = None
             self.log.info(e)
-            self.log.error("元素定位输入有误")
+            self.log.error(inspect.currentframe().f_back.f_code.co_name + " 元素定位输入有误")
         return element
 
 
