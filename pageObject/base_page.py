@@ -23,8 +23,13 @@ class BasePage:
         auto_id=None, # 这个也是固定的可以用，inspect界面AutomationId字段，但是很多控件没有这个属性
         """
         element = None
-        if kwargs:
-            self.driver.window(kwargs)
+        try:
+            if kwargs:
+                element=self.driver.window(**kwargs)
+
+        except Exception as e:
+            element = None
+            self.log.info(e)
             self.log.error("元素定位输入有误")
         return element
 
