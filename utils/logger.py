@@ -29,11 +29,11 @@ class Logger():
 
 def log_decorator(func):
         def wrapper(*args, **kwargs):
-            self.log.info(f"Executing function: {func.__name__}")
+            Logger().logger.info(f"Executing function: {func.__name__}")
             try:
                 result = func(*args, **kwargs)
             except Exception as e: 
-                self.log.info(f"Function {func.__name__} executed Failed")
+                Logger().logger.info(f"Function {func.__name__} executed Failed")
             return result
         return wrapper
 
