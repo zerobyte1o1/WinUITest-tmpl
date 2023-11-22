@@ -1,4 +1,5 @@
 from pageObject.home_page import HomePage
+from utils.logger import log_decorator
 
 
 class HomeHandler(HomePage):
@@ -9,6 +10,7 @@ class HomeHandler(HomePage):
     def __init__(self):
         super().__init__()
 
+    @log_decorator
     def click_meals_pricing_loc(self):
         self.meals_pricing_loc().click()
 

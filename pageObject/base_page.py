@@ -47,6 +47,9 @@ class BasePage:
             self.log.error(inspect.currentframe().f_back.f_code.co_name + " 元素定位输入有误")
         return element
 
+    
+
+
 
 if __name__ == '__main__':
     BasePage()
