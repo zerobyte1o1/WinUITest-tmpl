@@ -27,8 +27,9 @@ class Logger():
         self.logger.addHandler(self.console)
 
 
-logger = Logger().logger
+
 
 if __name__ == '__main__':
+    logger = Logger().logger
     logger.info("---测试开始---")
     logger.debug("---测试结束---")
