@@ -34,4 +34,4 @@ class HomeHandler(HomePage):
 
 
 if __name__ == '__main__':
-    HomeHandler().click_meals_procing()
+    HomeHandler().click_meals_pricing_loc()

@@ -1,5 +1,7 @@
 import logging, time, os
 
+from pywinauto.findwindows import ElementNotFoundError
+
 BASE_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 # 定义日志文件路径
 LOG_PATH = os.path.join(BASE_PATH, "log")
@@ -29,11 +31,13 @@ class Logger():
 
 def log_decorator(func):
         def wrapper(*args, **kwargs):
+            result=None
             Logger().logger.info(f"Executing function: {func.__name__}")
             try:
                 result = func(*args, **kwargs)
-            except Exception as e: 
+            except ElementNotFoundError as e:
                 Logger().logger.info(f"Function {func.__name__} executed Failed")
+
             return result
         return wrapper
 
