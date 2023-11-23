@@ -1,4 +1,6 @@
 import inspect
+import os
+import yaml
 
 from utils.driver_factory import DriverFactory
 
@@ -47,9 +49,22 @@ class BasePage:
             self.log.error(inspect.currentframe().f_back.f_code.co_name + " 元素定位输入有误")
         return element
 
-    
-
+    def get_variables(self, module_name: str, variables_name: str):
+        """
+        :param module_name:
+        :param variables_name: for instance: variables_name="create_product_project_temp"
+        :return: json
+        """
+        root_path = os.path.abspath(os.path.join(os.getcwd(),'../'))
+        print(root_path)
+        path = os.path.join(root_path, "case_data/variables_.yaml")
+        print(path)
+        variables = yaml.safe_load(open(path))
+        res = variables[module_name][variables_name]
+        return res
 
 
 if __name__ == '__main__':
-    BasePage()
+    # BasePage().get_variables()
+
+    pass

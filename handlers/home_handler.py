@@ -14,21 +14,27 @@ class HomeHandler(HomePage):
     def click_meals_pricing_loc(self):
         self.meals_pricing_loc().click()
 
+    @log_decorator
     def click_meals_management_loc(self):
         self.meals_management_loc().click()
 
+    @log_decorator
     def click_revenue_analysis_loc(self):
         self.revenue_analysis_loc().click()
 
+    @log_decorator
     def click_member_management_loc(self):
         self.member_management_loc().click()
 
+    @log_decorator
     def click_setting_loc(self):
         self.setting_loc().click()
 
+    @log_decorator
     def click_min_loc(self):
         self.min_loc().click()
 
+    @log_decorator
     def click_close_loc(self):
         self.close_loc().click()
 

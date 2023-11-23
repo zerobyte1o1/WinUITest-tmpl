@@ -9,7 +9,6 @@ if not os.path.exists(LOG_PATH):
     os.mkdir(LOG_PATH)
 
 
-
 class Logger():
 
     def __init__(self):
@@ -29,17 +28,17 @@ class Logger():
         self.logger.addHandler(self.filelogger)
         self.logger.addHandler(self.console)
 
-def log_decorator(func):
-        def wrapper(*args, **kwargs):
-            result=None
-            Logger().logger.info(f"Executing function: {func.__name__}")
-            try:
-                result = func(*args, **kwargs)
-            except ElementNotFoundError as e:
-                Logger().logger.info(f"Function {func.__name__} executed Failed")
 
-            return result
-        return wrapper
+def log_decorator(func):
+    def wrapper(*args, **kwargs):
+        Logger().logger.info(f"Executing function: {func.__name__}")
+        try:
+            result = func(*args, **kwargs)
+        except ElementNotFoundError as e:
+            Logger().logger.error(f"Function {func.__name__} executed Failed, Element not found")
+        return result
+
+    return wrapper
 
 
 if __name__ == '__main__':
