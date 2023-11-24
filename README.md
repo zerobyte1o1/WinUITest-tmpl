@@ -40,6 +40,4 @@ pip3 install -r requirements.txt
 allure serve ./report
 ```
 
-最终，可以看到测试报告的效果图如下：
-![img.png](img.png)
 也可以直接执行run.sh
