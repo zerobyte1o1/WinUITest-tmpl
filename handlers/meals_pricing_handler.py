@@ -17,3 +17,8 @@ class MealsPricingHandler(MealsPricingPage):
     @log_decorator
     def click_clear_machine_no_lco(self):
         self.clear_machine_no_loc().clicik()
+
+
+
+if __name__ == '__main__':
+    MealsPricingHandler().click_clear_machine_loc()

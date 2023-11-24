@@ -1,6 +1,7 @@
 import inspect
 import os
 import yaml
+from pywinauto import win32defines
 
 from utils.driver_factory import DriverFactory
 
@@ -43,6 +44,7 @@ class BasePage:
                                          control_type=control_type,
                                          best_match=best_match,
                                          auto_id=auto_id)
+            element.draw_outline(colour ='green',thickness = 2,fill = win32defines.BS_NULL, rect = None)
         except Exception as e:
             element = None
             self.log.info(e)
