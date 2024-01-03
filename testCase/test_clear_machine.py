@@ -7,7 +7,10 @@ import pytest
 @allure.feature("场景：操作清机功能")
 class TestClearMachine:
     def setup_class(self):
-        self.mph=MealsPricingHandler()
+        self.mph = MealsPricingHandler()
+
+    def teardown_class(self):
+        self.mph.driver.kill()
 
     @allure.story("用例-操作并确定清机")
     @allure.title("请求登出接口")
@@ -17,13 +20,9 @@ class TestClearMachine:
     @pytest.mark.p0
     def test_clear_machine_forward(self):
         with allure.step('点击清机按钮'):
-            self.mph.click_clear_machine_loc
+            self.mph.click_clear_machine_loc()
         with allure.step('点击确定'):
             self.mph.clear_machine_yes_loc()
 
-
-
-
     def test_clear_machine_reverse(self):
         pass
-

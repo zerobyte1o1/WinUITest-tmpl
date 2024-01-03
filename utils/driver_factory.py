@@ -11,7 +11,8 @@ class DriverFactory:
     @classmethod
     def get_driver(cls):
         env = Environment()
-        app = Application(env.get_type()).start(env.get_location())
+        app = Application(env.get_type())
+        app.start(env.get_location())
         cls.driver = app[env.get_app_name()]
         cls.log = Logger().logger
 
