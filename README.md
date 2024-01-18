@@ -1,6 +1,6 @@
 # WinUITest-tmpl
 
-本项目实现web接口自动化的技术选型：**Python+pywinauto+Pytest+YAML+Allure** ，主要是针对食方windows客户端来开展的，通过 Python+pywinauto 来模拟用户操作，使用 Pytest 作为测试执行器，使用 YAML 来管理测试数据，使用 Allure 来生成测试报告。
+本项目实现web接口自动化的技术选型：**Python+pywinauto+Pytest+YAML+Allure** ，通过 Python+pywinauto 来模拟用户操作，使用 Pytest 作为测试执行器，使用 YAML 来管理测试数据，使用 Allure 来生成测试报告。
 
 
 ## 项目说明
