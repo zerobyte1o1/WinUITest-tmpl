@@ -37,8 +37,11 @@ def log_decorator(func):
         except ElementNotFoundError as e:
             Logger().logger.error(f"Function {func.__name__} executed Failed, Element not found")
         return result
+
     return wrapper
 
+
+log = Logger().logger
 
 if __name__ == '__main__':
     logger = Logger().logger
