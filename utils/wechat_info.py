@@ -10,10 +10,10 @@ def send_wechat_message():
             version = file.readline().strip()
     except FileNotFoundError:
         log.warning("no listen file")
-        
+
     _directory = os.getcwd()
     result_file = os.path.join(_directory, "result.txt")
-    
+
     with open(result_file, "r") as fp:
         lines = fp.readlines()
         if lines[5].split("=")[1].strip() == "100%":
@@ -23,8 +23,8 @@ def send_wechat_message():
         content = ""
         for line in lines:
             content += "" + line.strip() + " \n"
-             
-    content = "<font color=\"comment\">"+version+"自动化测试</font>"+title+"\n >[详细报告](" + env.get_report_url() + ")\n"+content
+
+    content = "<font color=\"comment\">" + version + "自动化测试</font>" + title + "\n >[详细报告](" + env.get_report_url() + "\\" + version + "\\complete.html"")\n" + content
     body = {
         "msgtype": "markdown",
         "markdown": {
@@ -36,7 +36,7 @@ def send_wechat_message():
         response = requests.post(env.get_info_url(), json=body, headers=headers)
         log.info(response.text)
     except Exception as e:
-        log.warning("发送企业微信消息出错"+e)
+        log.warning("发送企业微信消息出错" + e)
     # print(response.status_code)
     # print(response.content)
     # print(response.text)
